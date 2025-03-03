@@ -1,9 +1,9 @@
-// src/main.js
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
 import "./assets/main.css";
+import "flowbite";
 import { apiClient } from "./config/axios";
 
 const app = createApp(App);

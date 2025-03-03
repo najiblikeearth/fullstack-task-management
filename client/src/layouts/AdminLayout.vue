@@ -1,23 +1,19 @@
 <template>
     <div class="relative min-h-screen flex flex-col">
-        <!-- Navbar -->
         <nav
             class="fixed top-0 left-0 right-0 z-10 bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700"
         >
             <Navbar />
         </nav>
 
-        <!-- Sidebar -->
         <Sidebar
             class="fixed left-0 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700"
         />
 
-        <!-- Konten Utama -->
         <main class="ml-56 mt-16 p-4 bg-gray-100 md:ml-40 flex-grow">
             <router-view />
         </main>
 
-        <!-- Footer -->
         <footer
             class="p-4 bg-white shadow md:flex md:items-center md:justify-center md:p-6 dark:bg-gray-800 ml-56 md:ml-56"
         >

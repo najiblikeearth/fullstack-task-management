@@ -17,8 +17,10 @@
                     <!-- Notifikasi -->
                     <div class="relative mr-6">
                         <button
-                            @click="toggleDropdown"
+                            id="notification-button"
                             class="relative p-2 rounded-full bg-gray-100 hover:bg-gray-200"
+                            data-dropdown-toggle="notification-dropdown"
+                            data-dropdown-placement="bottom-end"
                         >
                             <BellIcon class="w-6 h-6 text-purple-500" />
                             <span
@@ -28,9 +30,11 @@
                                 {{ unreadCount }}
                             </span>
                         </button>
+
+                        <!-- Notifikasi dropdown -->
                         <div
-                            v-if="isOpen"
-                            class="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg"
+                            id="notification-dropdown"
+                            class="z-50 hidden w-64 bg-white rounded-lg shadow transition-opacity duration-300 ease-in-out"
                         >
                             <div v-if="notifications.length > 0" class="p-2">
                                 <div
@@ -55,14 +59,13 @@
                         </div>
                     </div>
 
-                    <!-- User Profile -->
+                    <!-- Tombol User Profile -->
                     <button
                         type="button"
                         class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300"
                         id="user-menu-button"
-                        aria-expanded="false"
                         data-dropdown-toggle="user-dropdown"
-                        data-dropdown-placement="bottom"
+                        data-dropdown-placement="bottom-end"
                     >
                         <span class="sr-only">Open user menu</span>
                         <img
@@ -71,17 +74,18 @@
                             alt="user photo"
                         />
                     </button>
-                    <!-- Dropdown menu -->
+
+                    <!-- Dropdown menu dengan animasi bawaan Flowbite -->
                     <div
-                        class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
                         id="user-dropdown"
+                        class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow transition-opacity duration-300 ease-in-out"
                     >
                         <div class="px-4 py-3">
                             <span class="block text-sm text-gray-900">
                                 {{ authStore.user.data?.name }}
                             </span>
                         </div>
-                        <ul class="py-2" aria-labelledby="user-menu-button">
+                        <ul class="py-2">
                             <li>
                                 <router-link
                                     to="/profile"
